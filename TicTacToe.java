@@ -24,6 +24,29 @@ public class TicTacToe {
 	static List<Integer> freePosListPlayer = new ArrayList<Integer>(); 
 	static int winningPos = 0;
 	static int winningPosPlayer = 0;
+	
+	//Global PrintWriter declaration
+	static int player1Move;
+	static List<Integer> freePosListPlayer1 = new ArrayList<Integer>();
+	static int player2Move;
+	static List<Integer> freePosListPlayer2 = new ArrayList<Integer>();
+	static int player3Move;
+	static List<Integer> freePosListPlayer3 = new ArrayList<Integer>();
+	static int player4Move;
+	static List<Integer> freePosListPlayer4 = new ArrayList<Integer>();
+	static int player5Move;
+	static List<Integer> freePosListPlayer5 = new ArrayList<Integer>();
+	static int cpu1Move;
+	static List<Integer> freePosList1 = new ArrayList<Integer>();
+	static int cpu2Move;
+	static List<Integer> freePosList2 = new ArrayList<Integer>();
+	static int cpu3Move;
+	static List<Integer> freePosList3 = new ArrayList<Integer>();
+	static int cpu4Move;
+	static List<Integer> freePosList4 = new ArrayList<Integer>();
+	static int cpu5Move;
+	static List<Integer> freePosList5 = new ArrayList<Integer>();
+		
 
 // ------------------------Main------------------------------	
 	
@@ -50,7 +73,7 @@ public class TicTacToe {
 				System.out.println("you cannot play that position, please try again:");
 				playerPos = scan.nextInt();
 			}
-			
+			player1Move = playerPos;
 			placePiece(gameBoard, playerPos, "player");
 			printGameBoard(gameBoard);
 			
@@ -342,6 +365,7 @@ public class TicTacToe {
 		playerPositions.remove(lastInd);
 		
 	}
+	
 	public static void tempCheckWinnerPlayer1(int cpuPos) {
 		
 		List topRow = Arrays.asList(1, 2, 3);
@@ -365,17 +389,18 @@ public class TicTacToe {
 		winning.add(cross1);
 		winning.add(cross2);
 		
-		playerPositions.add(cpuPos);
+		TicTacToe.playerPositions.add(cpuPos);
 		
 		for (List l : winning) {
-			if (playerPositions.containsAll(l)) {
-				winningPosPlayer = cpuPos;
+			if (TicTacToe.playerPositions.containsAll(l)) {
+				TicTacToe.winningPosPlayer = cpuPos;
 				break;
 			}
 		}
-		int lastInd = playerPositions.lastIndexOf(cpuPos);
-		playerPositions.remove(lastInd);
+		int lastInd = TicTacToe.playerPositions.lastIndexOf(cpuPos);
+		TicTacToe.playerPositions.remove(lastInd);
 		
-	}
+}
+	
 	
 }
